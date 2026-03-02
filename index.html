@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chinese Student Association - Celebrating culture, supporting students, building community.">
+    <title>Chinese Student Association | University</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ═════════════════════════════════════════════
+         NAVIGATION
+         ═════════════════════════════════════════════ -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-left">
+            <svg class="nav-seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="48" fill="none" stroke="#8B0000" stroke-width="2"/>
+                <circle cx="50" cy="50" r="42" fill="none" stroke="#C6A75E" stroke-width="1.5" opacity="0.6"/>
+                <text x="50" y="58" font-family="'Noto Serif SC', serif" font-size="32" fill="#8B0000" text-anchor="middle" font-weight="600">中</text>
+            </svg>
+            <span class="nav-wordmark">CSA</span>
+        </div>
+        
+        <div class="nav-center" role="menubar">
+            <a data-page="home" role="menuitem" class="nav-link active" onclick="navigatePage('home')" data-en="Home" data-zh="主页">Home</a>
+            <a data-page="about" role="menuitem" class="nav-link" onclick="navigatePage('about')" data-en="About" data-zh="关于">About</a>
+            <div class="nav-dropdown">
+                <a role="menuitem" class="nav-link" data-page="events" onclick="navigatePage('events'); toggleDropdown(event)">Events ▼</a>
+                <div class="dropdown-menu">
+                    <a onclick="navigatePage('gallery'); closeDropdown()">Gallery</a>
+                    <a onclick="navigatePage('upcoming'); closeDropdown()">Upcoming Events</a>
+                    <a onclick="navigatePage('past'); closeDropdown()">Past Events</a>
+                </div>
+            </div>
+            <a data-page="sponsorship" role="menuitem" class="nav-link" onclick="navigatePage('sponsorship')" data-en="Sponsorship" data-zh="赞助">Sponsorship</a>
+            <div class="nav-dropdown">
+                <a data-page="resources" role="menuitem" class="nav-link" onclick="navigatePage('resources'); toggleDropdown(event)" data-en="Resources ▼" data-zh="资源 ▼">Resources ▼</a>
+                <div class="dropdown-menu">
+                    <a onclick="navigatePage('resources'); scrollToSection('group-chat'); closeDropdown(); return false;">Student Group Chat</a>
+                    <a onclick="navigatePage('resources'); scrollToSection('new-guide'); closeDropdown(); return false;">New Student Guide</a>
+                    <a onclick="navigatePage('resources'); scrollToSection('academic-support'); closeDropdown(); return false;">Academic Support</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-right">
+            <button class="btn-lang" aria-label="Toggle language">EN/中</button>
+            <button class="btn-join" aria-label="Join Us button" data-en="Join Us" data-zh="加入我们">Join Us</button>
+        </div>
+        
+        <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <nav style="padding: 0 1.5rem;">
+            <a class="nav-link" data-page="home" onclick="navigatePage('home')">Home</a>
+            <a class="nav-link" data-page="about" onclick="navigatePage('about')">About</a>
+            <a class="nav-link" onclick="navigatePage('events'); toggleMobileDropdown(event)">Events ▼</a>
+            <div class="mobile-dropdown-menu" style="display: none; padding-left: 1rem;">
+                <a onclick="navigatePage('gallery'); closeDropdown()">Gallery</a>
+                <a onclick="navigatePage('upcoming'); closeDropdown()">Upcoming Events</a>
+                <a onclick="navigatePage('past'); closeDropdown()">Past Events</a>
+            </div>
+            <a class="nav-link" data-page="sponsorship" onclick="navigatePage('sponsorship')">Sponsorship</a>
+            <a class="nav-link" onclick="navigatePage('resources'); toggleMobileDropdown(event)">Resources ▼</a>
+            <div class="mobile-dropdown-menu" style="display: none; padding-left: 1rem;">
+                <a onclick="navigatePage('resources'); scrollToSection('group-chat'); closeDropdown(); return false;">Student Group Chat</a>
+                <a onclick="navigatePage('resources'); scrollToSection('new-guide'); closeDropdown(); return false;">New Student Guide</a>
+                <a onclick="navigatePage('resources'); scrollToSection('academic-support'); closeDropdown(); return false;">Academic Support</a>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- ═════════════════════════════════════════════
+         MAIN CONTENT
+         ═════════════════════════════════════════════ -->
+    <main>
+        <!-- PAGE 1: HOME -->
+        <section id="page-home" class="page-section active">
+            <!-- Hero -->
+            <section class="hero">
+                <svg class="hero-watermark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="95" fill="none" stroke="#8B0000" stroke-width="3"/>
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#C6A75E" stroke-width="2" opacity="0.7"/>
+                    <circle cx="100" cy="100" r="60" fill="none" stroke="#8B0000" stroke-width="1.5" opacity="0.5"/>
+                    <text x="100" y="115" font-family="'Noto Serif SC', serif" font-size="80" fill="#8B0000" text-anchor="middle" opacity="0.5" font-weight="600">中</text>
+                </svg>
+                
+                <div class="hero-content">
+                    <h1 data-en="Chinese Student Association" data-zh="中华学生协会">Chinese Student Association</h1>
+                    <div class="subtitle-zh" data-en="Chinese Student Association" data-zh="中华学生协会">中华学生协会</div>
+                    <p>Fostering cultural pride and community among our students. We celebrate heritage, support academic and personal growth, and bridge cultural understanding across our campus.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary btn-join-hero">Join the Association</button>
+                        <button class="btn-secondary" onclick="navigatePage('events')">Upcoming Events</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Mission Strip -->
+            <section class="mission-strip">
+                <div class="mission-column">
+                    <svg class="mission-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="20" width="60" height="60" fill="none" stroke="#C6A75E" stroke-width="2"/>
+                        <path d="M50 35 L60 55 L75 55 L65 62 L70 82 L50 75 L30 82 L35 62 L25 55 L40 55 Z" fill="#C6A75E" opacity="0.8"/>
+                    </svg>
+                    <h3>Cultural Celebration</h3>
+                    <p>Honoring traditions through programming and events that bring our community together in shared appreciation of heritage.</p>
+                </div>
+                
+                <div class="mission-column">
+                    <svg class="mission-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="40" r="18" fill="none" stroke="#C6A75E" stroke-width="2"/>
+                        <path d="M30 60 Q30 70 50 75 Q70 70 70 60" fill="none" stroke="#C6A75E" stroke-width="2"/>
+                        <rect x="35" y="75" width="30" height="12" fill="#C6A75E" opacity="0.8"/>
+                    </svg>
+                    <h3>Student Support</h3>
+                    <p>Providing resources for academic success, wellness, and personal development to help our members thrive.</p>
+                </div>
+                
+                <div class="mission-column">
+                    <svg class="mission-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="40" r="15" fill="none" stroke="#C6A75E" stroke-width="2"/>
+                        <circle cx="65" cy="40" r="15" fill="none" stroke="#C6A75E" stroke-width="2"/>
+                        <path d="M35 55 L65 55" stroke="#C6A75E" stroke-width="2"/>
+                        <circle cx="50" cy="70" r="12" fill="#C6A75E" opacity="0.8"/>
+                    </svg>
+                    <h3>Cross-Cultural Engagement</h3>
+                    <p>Building bridges between communities to foster dialogue, understanding, and lasting friendships across cultures.</p>
+                </div>
+            </section>
+            
+            <!-- Statistics -->
+            <section class="statistics">
+                <div class="stat-item">
+                    <h2 data-target="9000" class="stat-counter">0</h2>
+                    <p>Students Engaged</p>
+                </div>
+                <div class="stat-item">
+                    <h2 data-target="15" class="stat-counter">0</h2>
+                    <p>Annual Programs</p>
+                </div>
+                <div class="stat-item">
+                    <h2 data-target="500" class="stat-counter">0</h2>
+                    <p>Gala Attendance</p>
+                </div>
+            </section>
+            
+            <!-- Featured Event -->
+            <section class="featured-event-section">
+                <div class="section-label">── FEATURED EVENT ──</div>
+                <div class="featured-event-card">
+                    <div class="event-header">
+                        <div class="event-info">
+                            <h3>Annual Spring Gala</h3>
+                            <div class="event-meta">
+                                <span>📅 April 19, 2026</span>
+                                <span>📍 Grand Ballroom, University Center</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Join us for an elegant celebration of Chinese culture featuring traditional performances, gourmet cuisine, and cultural exhibitions. This premier event brings together students, faculty, and alumni to experience the best of our heritage. Tickets and formal attire required.</p>
+                    <a class="event-link" onclick="navigatePage('events')">View Details →</a>
+                </div>
+            </section>
+            
+            <!-- Gallery Preview -->
+            <section class="gallery-preview">
+                <div class="section-label">── MOMENTS FROM PAST EVENTS ──</div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Mid-Autumn Festival</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Lunar New Year Celebration</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Cultural Workshop</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Community Potluck</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Language Exchange</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Spring Gala Highlights</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <!-- PAGE 2: ABOUT -->
+        <section id="page-about" class="page-section">
+            <!-- Mission & Vision -->
+            <section class="mission-vision">
+                <div>
+                    <h2>Our Mission</h2>
+                    <p>The Chinese Student Association is dedicated to creating an inclusive community where students of all backgrounds can celebrate, learn, and grow together. We honor Chinese cultural traditions while fostering meaningful connections across our diverse campus through cultural events, educational programs, and community service.</p>
+                </div>
+                <div>
+                    <h2>Our Vision</h2>
+                    <p>We envision a vibrant campus community where cultural exchange thrives, where students feel supported in their academic and personal journeys, and where the richness of Chinese heritage is appreciated and respected by all. Through intentional programming and meaningful dialogue, we aim to strengthen bonds within our community and across the entire university.</p>
+                </div>
+            </section>
+            
+            <!-- Timeline -->
+            <section class="timeline">
+                <h2>Organizational History</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>2015</strong>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Founded</h3>
+                        <p>Chinese Student Association established with a small group of dedicated students seeking to build community and celebrate heritage on campus.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>2017</strong>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>First Annual Spring Gala</h3>
+                        <p>Launch of our signature event, the Spring Gala, attracting over 200 attendees and becoming a hallmark of our programming.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>2019</strong>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Committee Expansion</h3>
+                        <p>Introduced formalized committee structure to better serve our growing membership across cultural, academic, and community initiatives.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>2022</strong>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Campus Recognition</h3>
+                        <p>Received formal recognition as a key cultural organization on campus, expanding our reach to over 5,000 engaged students annually.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>2024</strong>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Strategic Partnerships</h3>
+                        <p>Established partnerships with academic departments and community organizations to integrate cultural education into broader campus initiatives.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Executive Board -->
+            <section class="executive-board">
+                <h2>Executive Board</h2>
+                <div class="board-grid">
+                    <div class="board-member">
+                        <div class="board-portrait"></div>
+                        <h4>Jennifer Wang</h4>
+                        <p>President</p>
+                    </div>
+                    <div class="board-member">
+                        <div class="board-portrait"></div>
+                        <h4>Michael Liu</h4>
+                        <p>Vice President</p>
+                    </div>
+                    <div class="board-member">
+                        <div class="board-portrait"></div>
+                        <h4>Sophie Chen</h4>
+                        <p>Treasurer</p>
+                    </div>
+                    <div class="board-member">
+                        <div class="board-portrait"></div>
+                        <h4>David Zhang</h4>
+                        <p>Secretary</p>
+                    </div>
+                    <div class="board-member">
+                        <div class="board-portrait"></div>
+                        <h4>Emily Xu</h4>
+                        <p>Events Coordinator</p>
+                    </div>
+                    <div class="board-member">
+                        <div class="board-portrait"></div>
+                        <h4>Nathan Tang</h4>
+                        <p>Outreach Lead</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Committees -->
+            <section class="committees-table">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Our Committees</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Committee</th>
+                            <th>Scope</th>
+                            <th>Lead</th>
+                            <th>Open Positions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cultural Events</strong></td>
+                            <td>Plans and executes signature events including the Spring Gala, Lunar New Year celebrations, and festival programming that honors Chinese traditions and brings community together.</td>
+                            <td>Emily Xu</td>
+                            <td>2 Coordinators</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Academic Support</strong></td>
+                            <td>Provides peer tutoring, study groups, and mentorship programs connecting students with academic resources and fostering intellectual development across all disciplines.</td>
+                            <td>Sarah Kim</td>
+                            <td>3 Mentors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Community Outreach</strong></td>
+                            <td>Engages with broader campus and local communities through service projects, cultural education, and collaborative programming that strengthens relationships and builds understanding.</td>
+                            <td>Nathan Tang</td>
+                            <td>4 Volunteers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wellness & Social</strong></td>
+                            <td>Organizes social gatherings, wellness workshops, and support networks that prioritize member health, belonging, and personal well-being within a caring community environment.</td>
+                            <td>Jessica Park</td>
+                            <td>2 Coordinators</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Partners -->
+            <section class="partners">
+                <h2>Our Partners</h2>
+                <div class="partners-grid">
+                    <div class="partner-logo">International Office</div>
+                    <div class="partner-logo">Student Life</div>
+                    <div class="partner-logo">Diversity Center</div>
+                    <div class="partner-logo">Academic Affairs</div>
+                    <div class="partner-logo">Career Services</div>
+                    <div class="partner-logo">Community Partners</div>
+                </div>
+            </section>
+        </section>
+        
+        <!-- PAGE 3: EVENTS -->
+        <section id="page-events" class="page-section">
+            <div class="events-hub" style="max-width: 1200px; margin: 3rem auto; padding: 0 3rem; text-align: center;">
+                <h1 style="font-family: var(--font-display); font-size: 2.5rem; color: var(--color-ink); margin-bottom: 2rem; font-weight: 600;">Events Hub</h1>
+                <p style="color: var(--color-subtext); font-size: 1.1rem; margin-bottom: 3rem;">Explore our gallery, upcoming events, and past celebrations</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="hub-card" onclick="navigatePage('gallery')" style="cursor: pointer; background-color: var(--bg-secondary); padding: 2rem; border: 1px solid var(--color-border); transition: all 0.3s ease;">
+                        <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-ink); margin-bottom: 1rem; font-weight: 600;">📸 Gallery</h3>
+                        <p style="color: var(--color-subtext); margin-bottom: 1.5rem;">View moments from past events and celebrations</p>
+                        <a style="color: var(--color-gold); font-weight: 600; text-decoration: none;">View Gallery →</a>
+                    </div>
+                    
+                    <div class="hub-card" onclick="navigatePage('upcoming')" style="cursor: pointer; background-color: var(--bg-secondary); padding: 2rem; border: 1px solid var(--color-border); transition: all 0.3s ease;">
+                        <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-ink); margin-bottom: 1rem; font-weight: 600;">📅 Upcoming Events</h3>
+                        <p style="color: var(--color-subtext); margin-bottom: 1.5rem;">Discover what's coming next</p>
+                        <a style="color: var(--color-gold); font-weight: 600; text-decoration: none;">See Events →</a>
+                    </div>
+                    
+                    <div class="hub-card" onclick="navigatePage('past')" style="cursor: pointer; background-color: var(--bg-secondary); padding: 2rem; border: 1px solid var(--color-border); transition: all 0.3s ease;">
+                        <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-ink); margin-bottom: 1rem; font-weight: 600;">📚 Past Events</h3>
+                        <p style="color: var(--color-subtext); margin-bottom: 1.5rem;">Explore our event history</p>
+                        <a style="color: var(--color-gold); font-weight: 600; text-decoration: none;">View Archive →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PAGE 3A: GALLERY -->
+        <section id="page-gallery" class="page-section">
+            <section class="gallery-preview" style="margin-top: 2rem;">
+                <div class="section-label">── GALLERY ──</div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Mid-Autumn Festival</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Lunar New Year Celebration</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Cultural Workshop</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Community Potluck</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Language Exchange</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-caption">Spring Gala Highlights</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div style="max-width: 1200px; margin: 3rem auto; padding: 0 3rem; text-align: center;">
+                <button class="btn-secondary" onclick="navigatePage('events')" style="margin-top: 2rem;">← Back to Events Hub</button>
+            </div>
+        </section>
+        
+        <!-- PAGE 3B: UPCOMING EVENTS -->
+        <section id="page-upcoming" class="page-section">
+            <div class="events-container">
+                <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--color-ink); margin: 3rem 0 2rem; text-align: center; font-weight: 600;">── UPCOMING EVENTS ──</h2>
+                
+                <div class="event-card" data-category="upcoming">
+                    <div class="event-date-badge">April 19</div>
+                    <div class="event-card-body">
+                        <span class="event-category">Signature</span>
+                        <h3>Annual Spring Gala</h3>
+                        <div class="event-location">📍 Grand Ballroom, University Center</div>
+                        <div class="event-description">Our premier annual celebration featuring traditional performances, gourmet Chinese cuisine, cultural exhibitions, and networking opportunities. Formal attire required. This elegant evening brings together students, faculty, alumni, and community partners.</div>
+                    </div>
+                </div>
+                
+                <div class="event-card" data-category="upcoming">
+                    <div class="event-date-badge">April 6</div>
+                    <div class="event-card-body">
+                        <span class="event-category">Workshop</span>
+                        <h3>Chinese Calligraphy Masterclass</h3>
+                        <div class="event-location">📍 Art Studio, Building C</div>
+                        <div class="event-description">Learn the art of traditional Chinese calligraphy from a visiting master calligrapher. Discover the history, techniques, and philosophy behind this ancient art form. All skill levels welcome. Materials provided.</div>
+                    </div>
+                </div>
+                
+                <div class="event-card" data-category="upcoming">
+                    <div class="event-date-badge">May 3</div>
+                    <div class="event-card-body">
+                        <span class="event-category">Social</span>
+                        <h3>Community Potluck & Game Night</h3>
+                        <div class="event-location">📍 Student Center, Room 150</div>
+                        <div class="event-description">Join us for an evening of food, laughter, and friendly competition. Bring your favorite dish to share and enjoy traditional games, card games, and conversation. Open to all students and community members.</div>
+                    </div>
+                </div>
+                
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-ink); margin: 3rem 0 2rem; font-weight: 600;">── SIGNATURE EVENTS ──</h3>
+                
+                <div class="signature-event-card" data-category="signature">
+                    <h3>Annual Spring Gala</h3>
+                    <p>Our flagship event celebrating Chinese culture with traditional music and dance performances, authentic cuisine, cultural displays, and a formal evening that honors our heritage and builds community.</p>
+                    <p style="margin-bottom: 0;"><strong>Held annually:</strong> April • ~500 attendees • Formal attire</p>
+                </div>
+                
+                <div class="signature-event-card" data-category="signature">
+                    <h3>Lunar New Year Celebration</h3>
+                    <p>A vibrant festival featuring traditional performances, lion dances, cultural activities for all ages, festive decorations, and special cuisine. This colorful event welcomes the new year in style and brings our entire campus community together.</p>
+                    <p style="margin-bottom: 0;"><strong>Held annually:</strong> February • Open to campus</p>
+                </div>
+                
+                <div class="signature-event-card" data-category="signature">
+                    <h3>Mid-Autumn Festival</h3>
+                    <p>Celebrate the harvest moon with traditional moon cakes, lantern displays, cultural performances, and outdoor festivities. This cherished event honors tradition while creating memorable moments for students and families.</p>
+                    <p style="margin-bottom: 0;"><strong>Held annually:</strong> September/October • Family-friendly</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <button class="btn-secondary" onclick="navigatePage('events')">← Back to Events Hub</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PAGE 3C: PAST EVENTS -->
+        <section id="page-past" class="page-section">
+            <div class="events-container">
+                <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--color-ink); margin: 3rem 0 2rem; text-align: center; font-weight: 600;">── PAST EVENTS ARCHIVE ──</h2>
+                
+                <div class="past-archive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Event Name</th>
+                                <th>Attendance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025</td>
+                                <td>Spring Gala: A Night of Heritage</td>
+                                <td>480 attendees</td>
+                            </tr>
+                            <tr>
+                                <td>2025</td>
+                                <td>Lunar New Year Festival</td>
+                                <td>650 attendees</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>Mid-Autumn Celebration</td>
+                                <td>420 attendees</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>Annual Spring Gala</td>
+                                <td>510 attendees</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>Cultural Language Exchange</td>
+                                <td>185 attendees</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>Spring Gala: Celebrating Excellence</td>
+                                <td>465 attendees</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <button class="btn-secondary" onclick="navigatePage('events')">← Back to Events Hub</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PAGE 4: SPONSORSHIP -->
+        <section id="page-sponsorship" class="page-section">
+            <!-- Hero -->
+            <section class="sponsorship-hero hero">
+                <h1>Sponsorship &amp; Partnership</h1>
+                <div class="subtitle-zh">合作与支持</div>
+                <p>The Chinese Student Association welcomes partnerships with organizations who share our commitment to cultural education, student development, and community engagement.
+Through structured programming and responsible stewardship, we offer sponsors meaningful visibility within a thoughtful academic setting.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Request Sponsorship Packet</button>
+                    <button class="btn-secondary">Contact Partnerships Committee</button>
+                </div>
+            </section>
+
+            <!-- Why Partner With CSA -->
+            <section class="why-partner">
+                <h2>Why Partner With CSA</h2>
+                <div class="why-grid">
+                    <div class="why-item">
+                        <h3>Cultural Impact</h3>
+                        <p>CSA hosts curated programs reaching 9,000+ students annually across cultural, academic, and community initiatives.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3>Academic Alignment</h3>
+                        <p>Our events are designed in coordination with campus departments and uphold university standards of professionalism and inclusivity.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3>Long-Term Visibility</h3>
+                        <p>Sponsors benefit from recurring exposure through signature events, formal galas, and educational programming.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sponsorship Tiers -->
+            <section class="sponsorship-tiers">
+                <h2>Sponsorship Tiers</h2>
+                <div class="tier-divider"></div>
+                <table class="tier-table">
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>Contribution</th>
+                            <th>Benefits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Title Sponsor</td>
+                            <td>$5,000+</td>
+                            <td>Logo placement at signature events, stage acknowledgment, program feature, social recognition, booth opportunity</td>
+                        </tr>
+                        <tr>
+                            <td>Gold Sponsor</td>
+                            <td>$2,500</td>
+                            <td>Event banner placement, digital promotion, verbal recognition</td>
+                        </tr>
+                        <tr>
+                            <td>Silver Sponsor</td>
+                            <td>$1,000</td>
+                            <td>Website recognition and event program listing</td>
+                        </tr>
+                        <tr>
+                            <td>Community Partner</td>
+                            <td>In-kind</td>
+                            <td>Collaborative branding and shared programming</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="tier-divider"></div>
+            </section>
+
+            <!-- Signature Event Exposure -->
+            <section class="signature-exposure">
+                <h2>Signature Event Exposure</h2>
+                <div class="signature-card">
+                    <h3>Autumn Cultural Gala</h3>
+                    <ul>
+                        <li>500+ attendees</li>
+                        <li>Formal stage recognition</li>
+                        <li>Program booklet logo placement</li>
+                        <li>VIP seating opportunity</li>
+                    </ul>
+                </div>
+                <div class="signature-card">
+                    <h3>Spring Lantern Evening</h3>
+                    <ul>
+                        <li>300+ attendees</li>
+                        <li>Interactive sponsor table option</li>
+                        <li>Featured mention in promotional materials</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Audience & Reach -->
+            <section class="statistics sponsorship-stats">
+                <div class="stat-item">
+                    <h2 data-target="9000" class="stat-counter">0</h2>
+                    <p>Students Engaged Annually</p>
+                </div>
+                <div class="stat-item">
+                    <h2 data-target="15" class="stat-counter">0</h2>
+                    <p>Programs Each Year</p>
+                </div>
+                <div class="stat-item">
+                    <h2 data-target="500" class="stat-counter">0</h2>
+                    <p>Gala Attendance</p>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="testimonial-section">
+                <p>“Our partnership with CSA provided meaningful engagement with students in an academic and culturally respectful setting.”</p>
+                <div class="testimonial-attribution">— Campus Cultural Center</div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <h2>Partnerships Committee</h2>
+                <p><strong>Lead:</strong> Director of Partnerships</p>
+                <p><strong>Email:</strong> <a href="mailto:partnerships@csa-university.edu">partnerships@csa-university.edu</a></p>
+                <div class="hero-buttons" style="justify-content: center; margin-top: 1.5rem;">
+                    <button class="btn-primary">Download Sponsorship Packet</button>
+                    <button class="btn-secondary">Schedule Consultation</button>
+                </div>
+            </section>
+        </section>
+        
+        <!-- PAGE 5: RESOURCES -->
+        <section id="page-resources" class="page-section">
+            <div class="resources-container">
+                <h1>Resources & Support</h1>
+                
+                <!-- Section anchors for dropdown navigation -->
+                <section id="group-chat" style="margin-top:2rem;">
+                    <h2>Student Group Chat</h2>
+                    <p>Join our official student group chats on campus platforms to stay informed, connect with peers, and coordinate study sessions or events.</p>
+                </section>
+                <section id="new-guide" style="margin-top:2rem;">
+                    <h2>New Student Guide</h2>
+                    <p>Essential information for navigating campus life, meeting other students, and taking advantage of university resources.</p>
+                </section>
+                <section id="academic-support" style="margin-top:2rem;">
+                    <h2>Academic Support</h2>
+                    <p>Connect with peer tutors, access study resources, and join collaborative learning groups across all academic disciplines.</p>
+                </section>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <svg class="resource-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="15" y="20" width="70" height="60" fill="none" stroke="#8B0000" stroke-width="2" rx="4"/>
+                            <line x1="25" y1="35" x2="75" y2="35" stroke="#8B0000" stroke-width="1.5"/>
+                            <line x1="25" y1="45" x2="75" y2="45" stroke="#8B0000" stroke-width="1.5"/>
+                            <line x1="25" y1="55" x2="65" y2="55" stroke="#8B0000" stroke-width="1.5"/>
+                        </svg>
+                        <h3>Academic Support</h3>
+                        <p>Connect with peer tutors, access study resources, and join collaborative learning groups across all academic disciplines.</p>
+                        <div class="resource-content">
+                            <p>We offer:</p>
+                            <p>• Peer tutoring in mathematics, sciences, languages, and humanities</p>
+                            <p>• Study groups organized by major and course level</p>
+                            <p>• Academic success workshops addressing exam preparation, research, and writing</p>
+                            <p>• Mentorship connecting you with experienced students in your field</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <svg class="resource-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 20 Q70 30 70 50 Q70 70 50 80 Q30 70 30 50 Q30 30 50 20" fill="none" stroke="#8B0000" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="8" fill="#8B0000"/>
+                            <line x1="50" y1="42" x2="50" y2="58" stroke="#8B0000" stroke-width="2"/>
+                            <line x1="42" y1="50" x2="58" y2="50" stroke="#8B0000" stroke-width="2"/>
+                        </svg>
+                        <h3>New Student Guide</h3>
+                        <p>Essential information for navigating campus life, meeting other students, and taking advantage of university resources.</p>
+                        <div class="resource-content">
+                            <p>Explore:</p>
+                            <p>• Campus map and essential locations</p>
+                            <p>• Orientation events and welcome programs</p>
+                            <p>• Housing, dining, and student services</p>
+                            <p>• Getting involved on campus and finding your community</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <svg class="resource-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30 35 L50 50 L70 35" fill="none" stroke="#8B0000" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M30 50 L50 65 L70 50" fill="none" stroke="#8B0000" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="#8B0000" stroke-width="1.5" opacity="0.3"/>
+                        </svg>
+                        <h3>Career Development</h3>
+                        <p>Resources for resume building, interview preparation, internship opportunities, and professional networking.</p>
+                        <div class="resource-content">
+                            <p>We support:</p>
+                            <p>• Career exploration and interest assessment</p>
+                            <p>• Resume and cover letter workshops</p>
+                            <p>• Interview preparation and practice</p>
+                            <p>• Networking with alumni and industry professionals</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <svg class="resource-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="45" r="20" fill="none" stroke="#8B0000" stroke-width="2"/>
+                            <path d="M35 65 Q35 75 50 78 Q65 75 65 65" fill="none" stroke="#8B0000" stroke-width="2"/>
+                            <circle cx="45" cy="40" r="3" fill="#8B0000"/>
+                            <circle cx="55" cy="40" r="3" fill="#8B0000"/>
+                            <path d="M45 50 Q50 55 55 50" fill="none" stroke="#8B0000" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Wellness Resources</h3>
+                        <p>Mental health support, stress management, fitness activities, and community gathering spaces for holistic well-being.</p>
+                        <div class="resource-content">
+                            <p>Access to:</p>
+                            <p>• Counseling and mental health support services</p>
+                            <p>• Stress management and meditation workshops</p>
+                            <p>• Wellness events and recreational activities</p>
+                            <p>• Community support and peer mentoring</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <svg class="resource-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="25" width="60" height="50" fill="none" stroke="#8B0000" stroke-width="2" rx="2"/>
+                            <path d="M30 35 Q50 50 70 35" fill="none" stroke="#8B0000" stroke-width="1.5"/>
+                            <text x="50" y="60" font-family="'Noto Serif SC', serif" font-size="16" fill="#8B0000" text-anchor="middle" font-weight="600">中</text>
+                        </svg>
+                        <h3>Cultural Education</h3>
+                        <p>Deepen your understanding of Chinese heritage through language, history, arts, and cultural traditions.</p>
+                        <div class="resource-content">
+                            <p>Discover:</p>
+                            <p>• Mandarin and other Chinese language learning resources</p>
+                            <p>• Cultural history and traditions workshops</p>
+                            <p>• Arts and crafts programs (calligraphy, painting, cooking)</p>
+                            <p>• Cross-cultural dialogue and exchange opportunities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <svg class="resource-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#8B0000" stroke-width="2"/>
+                            <line x1="50" y1="25" x2="50" y2="40" stroke="#8B0000" stroke-width="2"/>
+                            <line x1="50" y1="60" x2="50" y2="75" stroke="#8B0000" stroke-width="2"/>
+                            <line x1="25" y1="50" x2="40" y2="50" stroke="#8B0000" stroke-width="2"/>
+                            <line x1="60" y1="50" x2="75" y2="50" stroke="#8B0000" stroke-width="2"/>
+                        </svg>
+                        <h3>Campus Navigation</h3>
+                        <p>Guide to campus facilities, student services, and resources to help you make the most of your university experience.</p>
+                        <div class="resource-content">
+                            <p>Find out about:</p>
+                            <p>• Library services and academic spaces</p>
+                            <p>• Recreational facilities and sports programs</p>
+                            <p>• Student services and administrative offices</p>
+                            <p>• On-campus and off-campus resources</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ═════════════════════════════════════════════
+         JOIN MODAL
+         ═════════════════════════════════════════════ -->
+    <div id="join-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            
+            <div class="join-form-state">
+                <h2>Join the CSA</h2>
+                
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 1rem; font-weight: 600; color: var(--color-ink);">Select Your Membership Type</label>
+                    <div class="membership-options">
+                        <div class="membership-option">
+                            <input type="radio" id="member-community" name="membership" value="community" checked>
+                            <label for="member-community">
+                                <strong>Community Member</strong>
+                                <span>Attend events and stay connected</span>
+                            </label>
+                        </div>
+                        <div class="membership-option">
+                            <input type="radio" id="member-active" name="membership" value="active">
+                            <label for="member-active">
+                                <strong>Active Member</strong>
+                                <span>Get involved with committees and programs</span>
+                            </label>
+                        </div>
+                        <div class="membership-option">
+                            <input type="radio" id="member-leadership" name="membership" value="leadership">
+                            <label for="member-leadership">
+                                <strong>Leadership</strong>
+                                <span>Shape the organization and lead initiatives</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="join-form">
+                    <div class="form-group">
+                        <label for="join-name">Full Name *</label>
+                        <input type="text" id="join-name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="join-email">Email Address *</label>
+                        <input type="email" id="join-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="join-year">Year of Study *</label>
+                        <select id="join-year" name="year" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); font-family: var(--font-body); font-size: 0.9rem; color: var(--color-ink); background-color: var(--bg-primary); cursor: pointer;" required>
+                            <option value="">Select year...</option>
+                            <option value="first">First Year</option>
+                            <option value="second">Second Year</option>
+                            <option value="third">Third Year</option>
+                            <option value="fourth">Fourth Year</option>
+                            <option value="graduate">Graduate Student</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="join-major">Major/Field of Study *</label>
+                        <input type="text" id="join-major" name="major" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Complete Registration</button>
+                </form>
+            </div>
+            
+            <div class="thank-you-state">
+                <h3>Welcome to CSA!</h3>
+                <p>Thank you for joining the Chinese Student Association. We're excited to have you as part of our community.</p>
+                <p>Check your email for membership details and our upcoming events calendar.</p>
+                <button class="btn-primary" onclick="closeModal()" style="width: 100%; margin-top: 1.5rem;">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ═════════════════════════════════════════════
+         FOOTER
+         ═════════════════════════════════════════════ -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About CSA</h3>
+                <p>The Chinese Student Association creates a vibrant community celebrating culture, supporting academic success, and fostering meaningful connections across our campus. We're dedicated to making every student feel welcomed and valued.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a onclick="navigatePage('home'); scrollToTop();">Home</a><br>
+                <a onclick="navigatePage('about'); scrollToTop();">About Us</a><br>
+                <a onclick="navigatePage('events'); scrollToTop();">Events</a><br>
+                <a onclick="navigatePage('community'); scrollToTop();">Community</a><br>
+                <a onclick="navigatePage('resources'); scrollToTop();">Resources</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <div class="social-icon" title="Facebook" role="link" tabindex="0">f</div>
+                    <div class="social-icon" title="Instagram" role="link" tabindex="0">@</div>
+                    <div class="social-icon" title="LinkedIn" role="link" tabindex="0">in</div>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.85rem;"><strong>WeChat:</strong></p>
+                <div class="wechat-qr">Scan for WeChat</div>
+            </div>
+        </div>
+        
+        <div class="footer-divider">
+            <p>&copy; 2026 Chinese Student Association. Established 2015. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- ═════════════════════════════════════════════
+         EXTERNAL JAVASCRIPT
+         ═════════════════════════════════════════════ -->
+    <script src="script.js"></script>
+</body>
+</html>
