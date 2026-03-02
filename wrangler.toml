@@ -1,5 +1,7 @@
 name = "csa-website"
 compatibility_date = "2024-01-01"
 
-# Deploy this static site with:
-#   npx wrangler pages deploy . --project-name=csa-website
+# Static assets only (no Worker script) — serves index.html, script.js, style.css
+[assets]
+directory = "."
+not_found_handling = "single-page-application"
