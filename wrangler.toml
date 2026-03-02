@@ -1,0 +1,5 @@
+name = "csa-website"
+compatibility_date = "2024-01-01"
+
+# Deploy this static site with:
+#   npx wrangler pages deploy . --project-name=csa-website
